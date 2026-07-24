@@ -165,6 +165,15 @@ em, .italic{font-style:italic}
   background-repeat:repeat;
   background-size:300px 160px;
 }
+.hero .wrap{display:grid;grid-template-columns:1.08fr .92fr;gap:50px;align-items:center}
+.hero-media{
+  display:grid;grid-template-columns:1.1fr .9fr;grid-template-rows:178px 178px;gap:12px;
+}
+.hero-media img{
+  width:100%;height:100%;object-fit:cover;border-radius:12px;
+  box-shadow:0 26px 50px -30px rgba(28,42,56,.6);
+}
+.hero-media .m-tall{grid-row:1/3}
 .hero .eyebrow{margin-bottom:20px}
 .hero h1{
   font-family:var(--serif);font-weight:400;
@@ -205,11 +214,15 @@ em, .italic{font-style:italic}
 .card{
   background:var(--blanc);border-radius:var(--radius);
   border-top:3px solid var(--marine);
-  padding:30px 26px 32px;
+  overflow:hidden;display:flex;flex-direction:column;
   transition:transform .25s var(--ease), box-shadow .25s var(--ease);
 }
 .card:hover{transform:translateY(-5px);box-shadow:0 22px 40px -26px rgba(28,42,56,.5)}
-.card .ic{font-size:26px;margin-bottom:14px;display:block}
+.card-media{overflow:hidden}
+.card-img{width:100%;height:188px;object-fit:cover;display:block;transition:transform .5s var(--ease)}
+.card:hover .card-img{transform:scale(1.05)}
+.card-body{padding:24px 26px 30px}
+.card .ic{font-size:24px;margin-bottom:10px;display:block}
 .card h3{font-family:var(--serif);font-weight:400;font-size:23px;color:var(--encre);margin-bottom:10px;line-height:1.15}
 .card p{font-size:14.5px;color:var(--horizon)}
 
@@ -221,9 +234,14 @@ em, .italic{font-style:italic}
   font-size:clamp(30px,4.6vw,48px);color:var(--blanc);
   line-height:1.12;margin:14px 0 26px;
 }
+.approche-top{display:grid;grid-template-columns:1fr .82fr;gap:46px;align-items:center;margin-bottom:50px}
 .approche .body{
   font-size:17px;line-height:1.8;color:rgba(254,252,248,.75);
-  max-width:580px;margin-bottom:48px;
+  max-width:580px;margin-bottom:0;
+}
+.approche-media img{
+  width:100%;height:100%;max-height:380px;object-fit:cover;border-radius:12px;
+  box-shadow:0 30px 60px -34px rgba(0,0,0,.7);
 }
 .engagements{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 .engagement{border-top:1px solid rgba(254,252,248,.18);padding-top:20px}
@@ -234,33 +252,35 @@ em, .italic{font-style:italic}
 /* ===== 5. RÉALISATIONS ===== */
 .realisations{background:var(--blanc)}
 .gallery{
-  display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:240px 240px;gap:6px;
+  display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:8px;grid-auto-flow:dense;
 }
 .gitem{
-  position:relative;overflow:hidden;border-radius:6px;
-  background:var(--calcaire);
-  display:flex;align-items:flex-end;
+  position:relative;overflow:hidden;border-radius:8px;
+  background:var(--calcaire);margin:0;
 }
-.gitem:first-child{grid-row:1/3}
-.gitem .ph{
-  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-size:34px;opacity:.5;
-}
+.gitem.g-big{grid-column:span 2;grid-row:span 2}
+.gitem.g-wide{grid-column:span 2}
+.gitem.g-tall{grid-row:span 2}
+.gitem img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s var(--ease)}
+.gitem:hover img{transform:scale(1.06)}
 .gitem .cap{
-  position:relative;z-index:2;padding:16px;font-size:13px;font-weight:700;color:var(--marine);
-  text-shadow:0 1px 0 rgba(254,252,248,.6);
+  position:absolute;left:0;right:0;bottom:0;z-index:2;margin:0;
+  padding:28px 14px 12px;font-size:12.5px;font-weight:700;color:var(--blanc);
+  background:linear-gradient(to top, rgba(28,42,56,.78), rgba(28,42,56,0));
+  transition:opacity .3s ease;
 }
 .gitem .overlay{
   position:absolute;inset:0;z-index:3;
-  background:rgba(28,42,56,.55);
+  background:rgba(28,42,56,.58);
   display:flex;align-items:center;justify-content:center;text-align:center;
   padding:22px;
   opacity:0;transition:opacity .3s var(--ease);
 }
 .gitem .overlay span{
-  font-family:var(--serif);font-style:italic;font-size:20px;color:var(--blanc);line-height:1.25;
+  font-family:var(--serif);font-style:italic;font-size:19px;color:var(--blanc);line-height:1.25;
 }
 .gitem:hover .overlay,.gitem:focus-within .overlay{opacity:1}
+.gitem:hover .cap{opacity:0}
 
 /* ===== 6. PROCESSUS ===== */
 .processus{
@@ -350,14 +370,19 @@ em, .italic{font-style:italic}
   .grid-3,.quotes,.steps{grid-template-columns:repeat(2,1fr)}
   .engagements{grid-template-columns:1fr;gap:18px}
   .contact-grid{grid-template-columns:1fr;gap:26px}
+  .approche-top{grid-template-columns:1fr;gap:30px}
+  .approche-media img{max-height:300px}
 }
 @media (max-width:768px){
   .section{padding:72px 0}
   .nav-links,.header .btn-marine{display:none}
   .burger{display:flex}
   .grid-3,.quotes,.steps{grid-template-columns:1fr}
-  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,180px)}
-  .gitem:first-child{grid-row:auto;grid-column:1/3}
+  .hero .wrap{grid-template-columns:1fr;gap:34px}
+  .hero-media{grid-template-rows:150px 150px;max-width:520px}
+  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:165px}
+  .gitem.g-wide{grid-column:span 2}
+  .gitem.g-tall{grid-row:span 1}
   .band p{font-size:11.5px}
   .hero{padding-top:calc(var(--band-h) + var(--header-h) + 44px)}
 }
@@ -365,16 +390,17 @@ em, .italic{font-style:italic}
   .wrap{padding:0 18px}
   .hero-ctas{flex-direction:column;align-items:stretch}
   .hero-ctas .btn{width:100%}
-  .gallery{grid-template-columns:1fr;grid-template-rows:none}
-  .gitem{height:190px}
-  .gitem:first-child{grid-column:auto}
+  .hero-media{grid-template-columns:1fr 1fr;grid-template-rows:130px 130px}
+  .gallery{grid-template-columns:1fr;grid-auto-rows:200px}
+  .gitem.g-big,.gitem.g-wide{grid-column:auto;grid-row:auto}
+  .gitem.g-tall{grid-row:auto}
 }
 
 /* ===== REDUCED MOTION ===== */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none;transition:none}
-  .card,.gitem .overlay,.btn,.tel-cta,.header{transition:none}
+  .card,.card-img,.gitem .overlay,.gitem img,.btn,.tel-cta,.header{transition:none}
 }
 </style>
 </head>
@@ -420,17 +446,24 @@ em, .italic{font-style:italic}
 <!-- ===== 2. HERO ===== -->
 <section class="hero" id="hero">
   <div class="wrap">
-    <p class="eyebrow reveal">Peintre décorateur · Toulon · Var (83)</p>
-    <h1 class="reveal">La couleur juste,<em>pour chaque espace.</em></h1>
-    <p class="lede reveal">Peinture intérieure et extérieure, décoration et revêtements muraux à Toulon et dans le Var. Un artisan qui écoute vos envies et les traduit en couleurs durables.</p>
-    <div class="hero-ctas reveal">
-      <a href="tel:0665288349" class="btn btn-marine btn-lg">📞 06 65 28 83 49</a>
-      <a href="#contact" class="btn btn-outline btn-lg">Demander un devis</a>
+    <div class="hero-copy">
+      <p class="eyebrow reveal">Peintre décorateur · Toulon · Var (83)</p>
+      <h1 class="reveal">La couleur juste,<em>pour chaque espace.</em></h1>
+      <p class="lede reveal">Peinture intérieure et extérieure, décoration et revêtements muraux à Toulon et dans le Var. Un artisan qui écoute vos envies et les traduit en couleurs durables.</p>
+      <div class="hero-ctas reveal">
+        <a href="tel:0665288349" class="btn btn-marine btn-lg">📞 06 65 28 83 49</a>
+        <a href="#contact" class="btn btn-outline btn-lg">Demander un devis</a>
+      </div>
+      <div class="badges reveal">
+        <span class="badge">🎨 Peinture &amp; Décoration</span>
+        <span class="badge">🏠 Intérieur &amp; Extérieur</span>
+        <span class="badge">📍 Toulon (83)</span>
+      </div>
     </div>
-    <div class="badges reveal">
-      <span class="badge">🎨 Peinture &amp; Décoration</span>
-      <span class="badge">🏠 Intérieur &amp; Extérieur</span>
-      <span class="badge">📍 Toulon (83)</span>
+    <div class="hero-media reveal">
+      <img class="m-tall" src="images/salon-8.jpg" alt="Séjour aux teintes chaudes, peinture et décoration soignées" width="600" height="720" decoding="async">
+      <img src="images/salon-2.jpg" alt="Salon lumineux fraîchement repeint à Toulon" width="400" height="300" decoding="async">
+      <img src="images/facade-2.jpg" alt="Façade méditerranéenne blanche sous le soleil du Var" width="400" height="300" decoding="async">
     </div>
   </div>
 </section>
@@ -444,34 +477,52 @@ em, .italic{font-style:italic}
     </div>
     <div class="grid-3">
       <article class="card reveal">
-        <span class="ic">🖌️</span>
-        <h3>Peinture intérieure</h3>
-        <p>Murs, plafonds, boiseries. Préparation soignée, application nette, couleurs au choix. Résultat durable.</p>
+        <div class="card-media"><img class="card-img" src="images/peinture-1.jpg" alt="Application de peinture au rouleau sur un mur intérieur" loading="lazy" decoding="async" width="400" height="188"></div>
+        <div class="card-body">
+          <span class="ic">🖌️</span>
+          <h3>Peinture intérieure</h3>
+          <p>Murs, plafonds, boiseries. Préparation soignée, application nette, couleurs au choix. Résultat durable.</p>
+        </div>
       </article>
       <article class="card reveal">
-        <span class="ic">🏠</span>
-        <h3>Ravalement de façade</h3>
-        <p>Nettoyage, réparation des fissures, peinture ou enduit. Votre façade varoise retrouve tout son éclat.</p>
+        <div class="card-media"><img class="card-img" src="images/facade-3.jpg" alt="Ravalement de façade d'une maison dans le Var" loading="lazy" decoding="async" width="400" height="188"></div>
+        <div class="card-body">
+          <span class="ic">🏠</span>
+          <h3>Ravalement de façade</h3>
+          <p>Nettoyage, réparation des fissures, peinture ou enduit. Votre façade varoise retrouve tout son éclat.</p>
+        </div>
       </article>
       <article class="card reveal">
-        <span class="ic">🎨</span>
-        <h3>Décoration &amp; couleurs</h3>
-        <p>Conseil en harmonie colorée, ambiances sur mesure. On traduit vos envies en espace vécu.</p>
+        <div class="card-media"><img class="card-img" src="images/deco-1.jpg" alt="Mur terracotta et mobilier bois, harmonie de couleurs" loading="lazy" decoding="async" width="400" height="188"></div>
+        <div class="card-body">
+          <span class="ic">🎨</span>
+          <h3>Décoration &amp; couleurs</h3>
+          <p>Conseil en harmonie colorée, ambiances sur mesure. On traduit vos envies en espace vécu.</p>
+        </div>
       </article>
       <article class="card reveal">
-        <span class="ic">📐</span>
-        <h3>Papier peint</h3>
-        <p>Pose de papier peint classique, vinyle, panoramique. Raccords parfaits, finitions soignées.</p>
+        <div class="card-media"><img class="card-img" src="images/salon-7.jpg" alt="Salon décoré, revêtement mural et finitions soignées" loading="lazy" decoding="async" width="400" height="188"></div>
+        <div class="card-body">
+          <span class="ic">📐</span>
+          <h3>Papier peint</h3>
+          <p>Pose de papier peint classique, vinyle, panoramique. Raccords parfaits, finitions soignées.</p>
+        </div>
       </article>
       <article class="card reveal">
-        <span class="ic">🧱</span>
-        <h3>Enduits décoratifs</h3>
-        <p>Béton ciré, tadelakt, stuc vénitien. Des textures qui donnent du caractère à vos murs.</p>
+        <div class="card-media"><img class="card-img" src="images/bain-3.jpg" alt="Salle de bain en béton ciré aux murs texturés" loading="lazy" decoding="async" width="400" height="188"></div>
+        <div class="card-body">
+          <span class="ic">🧱</span>
+          <h3>Enduits décoratifs</h3>
+          <p>Béton ciré, tadelakt, stuc vénitien. Des textures qui donnent du caractère à vos murs.</p>
+        </div>
       </article>
       <article class="card reveal">
-        <span class="ic">☀️</span>
-        <h3>Peinture extérieure</h3>
-        <p>Volets, portails, bardages. Produits adaptés au climat méditerranéen, résistants au soleil du Var.</p>
+        <div class="card-media"><img class="card-img" src="images/facade-1.jpg" alt="Villa varoise repeinte à l'extérieur sous le soleil méditerranéen" loading="lazy" decoding="async" width="400" height="188"></div>
+        <div class="card-body">
+          <span class="ic">☀️</span>
+          <h3>Peinture extérieure</h3>
+          <p>Volets, portails, bardages. Produits adaptés au climat méditerranéen, résistants au soleil du Var.</p>
+        </div>
       </article>
     </div>
   </div>
@@ -480,9 +531,16 @@ em, .italic{font-style:italic}
 <!-- ===== 4. L'ŒIL DU DÉCORATEUR ===== -->
 <section class="section approche" id="approche">
   <div class="wrap">
-    <p class="eyebrow reveal">Notre approche</p>
-    <h2 class="reveal">Peindre, c'est bien.<br>Décorer, c'est mieux.</h2>
-    <p class="body reveal">Déco Peinture 83, c'est plus qu'un artisan peintre. C'est un regard sur l'espace, une sensibilité à la lumière — celle du Var, intense et généreuse. Avant le premier coup de rouleau, on écoute ce que vous voulez ressentir dans vos pièces. Ensuite on choisit ensemble les couleurs, les matières, les finitions qui vont y répondre.</p>
+    <div class="approche-top">
+      <div class="approche-copy">
+        <p class="eyebrow reveal">Notre approche</p>
+        <h2 class="reveal">Peindre, c'est bien.<br>Décorer, c'est mieux.</h2>
+        <p class="body reveal">Déco Peinture 83, c'est plus qu'un artisan peintre. C'est un regard sur l'espace, une sensibilité à la lumière — celle du Var, intense et généreuse. Avant le premier coup de rouleau, on écoute ce que vous voulez ressentir dans vos pièces. Ensuite on choisit ensemble les couleurs, les matières, les finitions qui vont y répondre.</p>
+      </div>
+      <div class="approche-media reveal">
+        <img src="images/salon-5.jpg" alt="Pièce de vie contemporaine, ambiance chaleureuse et boiseries" loading="lazy" decoding="async" width="520" height="380">
+      </div>
+    </div>
     <div class="engagements">
       <div class="engagement reveal">
         <span class="ic">🎨</span>
@@ -511,31 +569,71 @@ em, .italic{font-style:italic}
       <h2 class="h-serif"><em>Quelques espaces transformés à Toulon.</em></h2>
     </div>
     <div class="gallery reveal">
-      <div class="gitem" tabindex="0">
-        <span class="ph" aria-hidden="true">🛋️</span>
-        <span class="cap">Salon — peinture et enduit décoratif</span>
+      <figure class="gitem g-big" tabindex="0">
+        <img src="images/salon-1.jpg" alt="Salon avec fauteuil jaune, peinture et enduit décoratif" loading="lazy" decoding="async">
+        <figcaption class="cap">Salon — peinture &amp; enduit décoratif</figcaption>
         <div class="overlay"><span>Salon — peinture &amp; enduit décoratif</span></div>
-      </div>
-      <div class="gitem" tabindex="0">
-        <span class="ph" aria-hidden="true">🏠</span>
-        <span class="cap">Façade — ravalement Toulon</span>
+      </figure>
+      <figure class="gitem" tabindex="0">
+        <img src="images/facade-2.jpg" alt="Façade blanche méditerranéenne ravalée à Toulon" loading="lazy" decoding="async">
+        <figcaption class="cap">Façade — ravalement à Toulon</figcaption>
         <div class="overlay"><span>Façade — ravalement à Toulon</span></div>
-      </div>
-      <div class="gitem" tabindex="0">
-        <span class="ph" aria-hidden="true">🛏️</span>
-        <span class="cap">Chambre — papier peint panoramique</span>
+      </figure>
+      <figure class="gitem" tabindex="0">
+        <img src="images/chambre-3.jpg" alt="Chambre aux tons terracotta, mur décoratif" loading="lazy" decoding="async">
+        <figcaption class="cap">Chambre — papier peint panoramique</figcaption>
         <div class="overlay"><span>Chambre — papier peint panoramique</span></div>
-      </div>
-      <div class="gitem" tabindex="0">
-        <span class="ph" aria-hidden="true">🍳</span>
-        <span class="cap">Cuisine — béton ciré sol et murs</span>
-        <div class="overlay"><span>Cuisine — béton ciré sol &amp; murs</span></div>
-      </div>
-      <div class="gitem" tabindex="0">
-        <span class="ph" aria-hidden="true">🪟</span>
-        <span class="cap">Volets et boiseries — peinture extérieure</span>
-        <div class="overlay"><span>Volets &amp; boiseries — peinture extérieure</span></div>
-      </div>
+      </figure>
+      <figure class="gitem" tabindex="0">
+        <img src="images/bain-1.jpg" alt="Salle de bain repeinte avec finition hydrofuge" loading="lazy" decoding="async">
+        <figcaption class="cap">Salle de bain — peinture hydrofuge</figcaption>
+        <div class="overlay"><span>Salle de bain — peinture hydrofuge</span></div>
+      </figure>
+      <figure class="gitem g-wide" tabindex="0">
+        <img src="images/salon-6.jpg" alt="Salon peint dans une teinte verte profonde" loading="lazy" decoding="async">
+        <figcaption class="cap">Salon — teinte verte profonde</figcaption>
+        <div class="overlay"><span>Salon — teinte verte profonde</span></div>
+      </figure>
+      <figure class="gitem g-tall" tabindex="0">
+        <img src="images/chambre-1.jpg" alt="Chambre parentale en peinture mate élégante" loading="lazy" decoding="async">
+        <figcaption class="cap">Chambre parentale — peinture mate</figcaption>
+        <div class="overlay"><span>Chambre parentale — peinture mate</span></div>
+      </figure>
+      <figure class="gitem" tabindex="0">
+        <img src="images/cuisine-4.jpg" alt="Cuisine contemporaine, enduit et tons gris" loading="lazy" decoding="async">
+        <figcaption class="cap">Cuisine — enduit béton ciré</figcaption>
+        <div class="overlay"><span>Cuisine — enduit béton ciré</span></div>
+      </figure>
+      <figure class="gitem" tabindex="0">
+        <img src="images/cuisine-1.jpg" alt="Cuisine repeinte avec crédence claire" loading="lazy" decoding="async">
+        <figcaption class="cap">Cuisine — peinture &amp; crédence</figcaption>
+        <div class="overlay"><span>Cuisine — peinture &amp; crédence</span></div>
+      </figure>
+      <figure class="gitem" tabindex="0">
+        <img src="images/salon-3.jpg" alt="Séjour lumineux, harmonie de couleurs neutres" loading="lazy" decoding="async">
+        <figcaption class="cap">Séjour — harmonie de couleurs</figcaption>
+        <div class="overlay"><span>Séjour — harmonie de couleurs</span></div>
+      </figure>
+      <figure class="gitem" tabindex="0">
+        <img src="images/bain-2.jpg" alt="Salle d'eau contemporaine à l'enduit sombre" loading="lazy" decoding="async">
+        <figcaption class="cap">Salle d'eau — enduit contemporain</figcaption>
+        <div class="overlay"><span>Salle d'eau — enduit contemporain</span></div>
+      </figure>
+      <figure class="gitem" tabindex="0">
+        <img src="images/salon-4.jpg" alt="Pièce de vie remise en peinture complète" loading="lazy" decoding="async">
+        <figcaption class="cap">Pièce de vie — remise en peinture</figcaption>
+        <div class="overlay"><span>Pièce de vie — remise en peinture</span></div>
+      </figure>
+      <figure class="gitem" tabindex="0">
+        <img src="images/cuisine-2.jpg" alt="Cuisine aux murs et plafond fraîchement repeints" loading="lazy" decoding="async">
+        <figcaption class="cap">Cuisine — murs &amp; plafond repeints</figcaption>
+        <div class="overlay"><span>Cuisine — murs &amp; plafond repeints</span></div>
+      </figure>
+      <figure class="gitem" tabindex="0">
+        <img src="images/chambre-2.jpg" alt="Appartement varois en peinture complète" loading="lazy" decoding="async">
+        <figcaption class="cap">Appartement — peinture complète</figcaption>
+        <div class="overlay"><span>Appartement — peinture complète</span></div>
+      </figure>
     </div>
   </div>
 </section>
