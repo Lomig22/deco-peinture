@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Déco Peinture 83 — Peintre Décorateur · Toulon · Var (83)</title>
+<meta name="description" content="Déco Peinture 83, peintre décorateur à Toulon et dans le Var. Peinture intérieure et extérieure, ravalement de façade, décoration, papier peint et enduits décoratifs. Conseil couleurs inclus, devis gratuit. 06 65 28 83 49.">
+<meta name="theme-color" content="#1A3A5C">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Déco Peinture 83 — Peintre Décorateur · Toulon · Var (83)">
+<meta property="og:description" content="Peinture, décoration et revêtements muraux à Toulon et dans le Var. Un artisan qui traduit vos envies en couleurs durables. Devis gratuit — 06 65 28 83 49.">
+<meta property="og:locale" content="fr_FR">
+
+<style>
+/* ===== IMPORT FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito+Sans:wght@400;500;700&display=swap');
+
+/* ===== TOKENS / VARIABLES ===== */
+:root{
+  --blanc:#FEFCF8;
+  --marine:#1A3A5C;
+  --encre:#1C2A38;
+  --calcaire:#F0EBE2;
+  --horizon:#6B8CA8;
+  --terracotta:#C46844;
+
+  --serif:'DM Serif Display', Georgia, 'Times New Roman', serif;
+  --sans:'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --band-h:36px;
+  --header-h:70px;
+  --maxw:1180px;
+  --radius:8px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+
+  /* Touches de spalter — tuile 300x160, marine opacity 0.04 (sections calcaire) */
+  --spalter:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='300'%20height='160'%3E%3Crect%20x='10'%20y='30'%20width='240'%20height='12'%20rx='6'%20fill='%231A3A5C'%20opacity='0.04'%20transform='rotate(-1.5%20130%2036)'/%3E%3Crect%20x='38'%20y='70'%20width='258'%20height='10'%20rx='5'%20fill='%231A3A5C'%20opacity='0.04'%20transform='rotate(1%20167%2075)'/%3E%3Crect%20x='6'%20y='110'%20width='210'%20height='14'%20rx='6'%20fill='%231A3A5C'%20opacity='0.04'%20transform='rotate(-2%20111%20117)'/%3E%3Crect%20x='58'%20y='145'%20width='228'%20height='9'%20rx='4'%20fill='%231A3A5C'%20opacity='0.04'%20transform='rotate(1.5%20172%20149)'/%3E%3C/svg%3E");
+
+  /* Touches de spalter — variante hero, marine opacity 0.03 */
+  --spalter-hero:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='300'%20height='160'%3E%3Crect%20x='10'%20y='30'%20width='240'%20height='12'%20rx='6'%20fill='%231A3A5C'%20opacity='0.03'%20transform='rotate(-1.5%20130%2036)'/%3E%3Crect%20x='38'%20y='70'%20width='258'%20height='10'%20rx='5'%20fill='%231A3A5C'%20opacity='0.03'%20transform='rotate(1%20167%2075)'/%3E%3Crect%20x='6'%20y='110'%20width='210'%20height='14'%20rx='6'%20fill='%231A3A5C'%20opacity='0.03'%20transform='rotate(-2%20111%20117)'/%3E%3Crect%20x='58'%20y='145'%20width='228'%20height='9'%20rx='4'%20fill='%231A3A5C'%20opacity='0.03'%20transform='rotate(1.5%20172%20149)'/%3E%3C/svg%3E");
+}
+
+/* ===== RESET ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  font-weight:400;
+  color:var(--encre);
+  background:var(--blanc);
+  line-height:1.6;
+  overflow-x:hidden;
+  scroll-padding-top:calc(var(--band-h) + var(--header-h) + 10px);
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+ul{list-style:none}
+:focus-visible{outline:2px solid var(--terracotta);outline-offset:3px;border-radius:3px}
+
+/* ===== HELPERS ===== */
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.eyebrow{
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:12.5px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--marine);
+}
+.h-serif{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:.005em}
+.section{padding:96px 0}
+em, .italic{font-style:italic}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease-out, transform .55s ease-out}
+.reveal.revealed{opacity:1;transform:none}
+
+/* ===== 0. BANDEAU ===== */
+.band{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:var(--band-h);
+  background:var(--marine);
+  color:var(--blanc);
+  display:flex;align-items:center;justify-content:center;
+}
+.band p{
+  font-size:13px;font-weight:700;
+  text-align:center;padding:0 14px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.band a{color:var(--blanc);text-decoration:underline;text-underline-offset:2px}
+
+/* ===== 1. HEADER ===== */
+.header{
+  position:fixed;top:var(--band-h);left:0;right:0;z-index:999;
+  height:var(--header-h);
+  background:rgba(254,252,248,0);
+  transition:background .3s var(--ease), box-shadow .3s var(--ease), backdrop-filter .3s var(--ease);
+}
+.header.scrolled{
+  background:rgba(254,252,248,.97);
+  backdrop-filter:saturate(150%) blur(10px);
+  -webkit-backdrop-filter:saturate(150%) blur(10px);
+  box-shadow:0 1px 0 rgba(28,42,56,.06), 0 8px 24px -18px rgba(28,42,56,.4);
+}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;height:100%}
+
+.logo{font-size:24px;line-height:1;display:inline-flex;align-items:baseline;gap:.06em}
+.logo .deco{font-family:var(--serif);font-style:italic;color:var(--marine)}
+.logo .peinture{font-family:var(--serif);color:var(--encre)}
+.logo .num{font-family:var(--sans);font-weight:700;font-size:18px;color:var(--terracotta);margin-left:4px}
+
+.nav{display:flex;align-items:center;gap:30px}
+.nav-links{display:flex;gap:26px}
+.nav-links a{
+  font-weight:500;font-size:13px;color:var(--horizon);
+  transition:color .2s ease;position:relative;padding:4px 0;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--marine)}
+.nav-links a.active::after{
+  content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;
+  background:var(--marine);border-radius:2px;
+}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-weight:700;font-size:14px;line-height:1;
+  border-radius:6px;transition:transform .18s var(--ease), box-shadow .2s var(--ease), background .2s ease, color .2s ease;
+}
+.btn-marine{background:var(--marine);color:var(--blanc);padding:12px 20px}
+.btn-marine:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(26,58,92,.65)}
+.header .btn-marine{padding:11px 18px}
+
+.burger{
+  display:none;width:42px;height:42px;flex-direction:column;justify-content:center;gap:5px;
+  align-items:center;
+}
+.burger span{width:22px;height:2px;background:var(--encre);border-radius:2px;transition:transform .25s var(--ease), opacity .2s ease}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Mobile overlay */
+.mobile-menu{
+  position:fixed;inset:0;z-index:998;
+  background:var(--blanc);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  opacity:0;visibility:hidden;transform:translateY(-8px);
+  transition:opacity .3s var(--ease), transform .3s var(--ease), visibility .3s;
+}
+.mobile-menu.open{opacity:1;visibility:visible;transform:none}
+.mobile-menu a{
+  font-family:var(--serif);font-size:30px;color:var(--encre);padding:12px 0;
+}
+.mobile-menu a:hover{color:var(--marine)}
+.mobile-menu .btn-marine{margin-top:22px;font-family:var(--sans);font-size:16px;padding:14px 30px}
+
+/* ===== 2. HERO ===== */
+.hero{
+  position:relative;
+  padding:calc(var(--band-h) + var(--header-h) + 70px) 0 90px;
+  background-color:var(--blanc);
+  background-image:var(--spalter-hero);
+  background-repeat:repeat;
+  background-size:300px 160px;
+}
+.hero .eyebrow{margin-bottom:20px}
+.hero h1{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(38px,6.4vw,72px);
+  line-height:1.05;color:var(--encre);
+  margin-bottom:24px;letter-spacing:.005em;
+}
+.hero h1 em{font-style:italic;color:var(--marine);display:block}
+.hero .lede{
+  font-weight:400;font-size:18px;color:var(--horizon);
+  max-width:480px;margin-bottom:34px;
+}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:36px}
+.btn-lg{padding:14px 32px;font-size:15px}
+.btn-outline{
+  background:transparent;border:1.5px solid var(--encre);color:var(--encre);
+  border-radius:6px;
+}
+.btn-outline:hover{background:var(--encre);color:var(--blanc);transform:translateY(-2px)}
+.badges{display:flex;flex-wrap:wrap;gap:10px}
+.badge{
+  background:var(--calcaire);color:var(--horizon);
+  border-radius:20px;padding:8px 16px;font-size:13px;font-weight:500;
+}
+
+/* ===== 3. PRESTATIONS ===== */
+.prestations{
+  background-color:var(--calcaire);
+  background-image:var(--spalter);
+  background-repeat:repeat;background-size:300px 160px;
+}
+.sec-head{margin-bottom:52px;max-width:640px}
+.sec-head .eyebrow{margin-bottom:14px}
+.sec-head h2{font-size:clamp(30px,4.4vw,44px);color:var(--encre)}
+.sec-head h2 em{font-style:italic;color:var(--marine)}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{
+  background:var(--blanc);border-radius:var(--radius);
+  border-top:3px solid var(--marine);
+  padding:30px 26px 32px;
+  transition:transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.card:hover{transform:translateY(-5px);box-shadow:0 22px 40px -26px rgba(28,42,56,.5)}
+.card .ic{font-size:26px;margin-bottom:14px;display:block}
+.card h3{font-family:var(--serif);font-weight:400;font-size:23px;color:var(--encre);margin-bottom:10px;line-height:1.15}
+.card p{font-size:14.5px;color:var(--horizon)}
+
+/* ===== 4. APPROCHE / L'ŒIL DU DÉCORATEUR ===== */
+.approche{background:var(--marine);color:var(--blanc);position:relative;overflow:hidden}
+.approche .eyebrow{color:rgba(254,252,248,.5)}
+.approche h2{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:clamp(30px,4.6vw,48px);color:var(--blanc);
+  line-height:1.12;margin:14px 0 26px;
+}
+.approche .body{
+  font-size:17px;line-height:1.8;color:rgba(254,252,248,.75);
+  max-width:580px;margin-bottom:48px;
+}
+.engagements{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.engagement{border-top:1px solid rgba(254,252,248,.18);padding-top:20px}
+.engagement .ic{font-size:24px;display:block;margin-bottom:10px}
+.engagement strong{display:block;font-size:16px;color:var(--blanc);margin-bottom:5px}
+.engagement span{font-size:14px;color:rgba(254,252,248,.65)}
+
+/* ===== 5. RÉALISATIONS ===== */
+.realisations{background:var(--blanc)}
+.gallery{
+  display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:240px 240px;gap:6px;
+}
+.gitem{
+  position:relative;overflow:hidden;border-radius:6px;
+  background:var(--calcaire);
+  display:flex;align-items:flex-end;
+}
+.gitem:first-child{grid-row:1/3}
+.gitem .ph{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:34px;opacity:.5;
+}
+.gitem .cap{
+  position:relative;z-index:2;padding:16px;font-size:13px;font-weight:700;color:var(--marine);
+  text-shadow:0 1px 0 rgba(254,252,248,.6);
+}
+.gitem .overlay{
+  position:absolute;inset:0;z-index:3;
+  background:rgba(28,42,56,.55);
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  padding:22px;
+  opacity:0;transition:opacity .3s var(--ease);
+}
+.gitem .overlay span{
+  font-family:var(--serif);font-style:italic;font-size:20px;color:var(--blanc);line-height:1.25;
+}
+.gitem:hover .overlay,.gitem:focus-within .overlay{opacity:1}
+
+/* ===== 6. PROCESSUS ===== */
+.processus{
+  background-color:var(--calcaire);
+  background-image:var(--spalter);background-repeat:repeat;background-size:300px 160px;
+}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:20px}
+.step{background:var(--blanc);border-radius:var(--radius);padding:32px 28px;position:relative}
+.step .no{
+  font-family:var(--serif);font-size:44px;color:var(--marine);line-height:1;
+  opacity:.9;margin-bottom:14px;display:block;
+}
+.step h3{font-family:var(--serif);font-weight:400;font-size:22px;color:var(--encre);margin-bottom:9px}
+.step p{font-size:14.5px;color:var(--horizon)}
+.step p a{color:var(--marine);font-weight:700}
+
+/* ===== 7. TÉMOIGNAGES ===== */
+.temoignages{background:var(--blanc)}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.quote{
+  background:var(--calcaire);border-radius:var(--radius);
+  border-left:4px solid var(--marine);
+  padding:28px 26px;display:flex;flex-direction:column;
+}
+.quote p{font-size:15px;color:var(--encre);line-height:1.65;margin-bottom:18px;flex:1}
+.quote .who{font-size:13.5px;font-weight:700;color:var(--marine)}
+.quote .stars{color:var(--terracotta);font-size:14px;letter-spacing:2px;margin-top:6px}
+
+/* ===== 8. CONTACT ===== */
+.contact{background:var(--encre);color:var(--blanc)}
+.contact .eyebrow{color:var(--terracotta)}
+.contact h2{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:clamp(30px,4.4vw,46px);color:var(--blanc);margin:14px 0 8px;
+}
+.contact .sub{color:var(--horizon);font-size:16px;margin-bottom:44px}
+.contact-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:34px;align-items:start}
+
+.contact-left{
+  background:rgba(26,58,92,.15);
+  border:1px solid rgba(26,58,92,.3);
+  border-radius:var(--radius);padding:28px;
+}
+.tel-cta{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--marine);color:var(--blanc);width:100%;
+  border-radius:6px;padding:18px;margin-bottom:22px;
+  font-family:var(--serif);font-size:24px;letter-spacing:.01em;
+  transition:transform .18s var(--ease), box-shadow .2s var(--ease);
+}
+.tel-cta:hover{transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(26,58,92,.8)}
+.contact-left .loc{font-size:16px;color:var(--blanc);margin-bottom:12px;font-weight:500}
+.contact-left .note{font-size:13px;font-style:italic;color:var(--horizon)}
+
+.form-grid{display:flex;flex-direction:column;gap:22px}
+.field{display:flex;flex-direction:column}
+.field label{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--horizon);margin-bottom:8px}
+.field input,.field select,.field textarea{
+  font-family:inherit;font-size:15px;color:var(--blanc);
+  background:transparent;border:none;border-bottom:1px solid rgba(254,252,248,.2);
+  padding:12px 0;transition:border-color .2s ease;
+}
+.field textarea{resize:vertical;min-height:96px}
+.field input::placeholder,.field textarea::placeholder{color:rgba(254,252,248,.4)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-bottom-color:var(--terracotta)}
+.field select{cursor:pointer}
+.field select option{background:var(--encre);color:var(--blanc)}
+.form-grid .btn-marine{width:100%;padding:16px;font-size:15px;margin-top:4px}
+.form-msg{font-size:14px;color:var(--terracotta);font-weight:700;min-height:1em}
+
+/* ===== 9. FOOTER ===== */
+.footer{
+  background:var(--calcaire);border-top:2px solid var(--marine);
+  padding:52px 0 40px;text-align:center;
+}
+.footer .flogo{font-size:26px;display:inline-flex;align-items:baseline;gap:.06em;margin-bottom:14px}
+.footer .flogo .deco{font-family:var(--serif);font-style:italic;color:var(--marine)}
+.footer .flogo .peinture{font-family:var(--serif);color:var(--encre)}
+.footer .flogo .num{font-family:var(--sans);font-weight:700;font-size:19px;color:var(--terracotta);margin-left:4px}
+.footer .meta{font-size:14px;color:var(--horizon);margin-bottom:8px}
+.footer .ftel{font-size:20px;font-weight:700;color:var(--marine);display:inline-block;margin-bottom:20px}
+.footer .copy{font-size:13px;color:var(--horizon)}
+.footer .credit{font-size:11px;color:var(--horizon);margin-top:12px;opacity:.85}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:1024px){
+  .grid-3,.quotes,.steps{grid-template-columns:repeat(2,1fr)}
+  .engagements{grid-template-columns:1fr;gap:18px}
+  .contact-grid{grid-template-columns:1fr;gap:26px}
+}
+@media (max-width:768px){
+  .section{padding:72px 0}
+  .nav-links,.header .btn-marine{display:none}
+  .burger{display:flex}
+  .grid-3,.quotes,.steps{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,180px)}
+  .gitem:first-child{grid-row:auto;grid-column:1/3}
+  .band p{font-size:11.5px}
+  .hero{padding-top:calc(var(--band-h) + var(--header-h) + 44px)}
+}
+@media (max-width:480px){
+  .wrap{padding:0 18px}
+  .hero-ctas{flex-direction:column;align-items:stretch}
+  .hero-ctas .btn{width:100%}
+  .gallery{grid-template-columns:1fr;grid-template-rows:none}
+  .gitem{height:190px}
+  .gitem:first-child{grid-column:auto}
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .card,.gitem .overlay,.btn,.tel-cta,.header{transition:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 0. BANDEAU ===== -->
+<div class="band" role="region" aria-label="Contact rapide">
+  <p>🎨 Déco Peinture 83 · Peintre Décorateur · Toulon · Var (83) · <a href="tel:0665288349">06&nbsp;65&nbsp;28&nbsp;83&nbsp;49</a></p>
+</div>
+
+<!-- ===== 1. HEADER ===== -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a href="#hero" class="logo" aria-label="Déco Peinture 83, accueil">
+      <span class="deco">Déco</span><span class="peinture">&nbsp;Peinture</span><span class="num">83</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <div class="nav-links">
+        <a href="#prestations">Nos prestations</a>
+        <a href="#realisations">Réalisations</a>
+        <a href="#approche">À propos</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="tel:0665288349" class="btn btn-marine">📞 Devis gratuit</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile overlay -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#prestations">Nos prestations</a>
+  <a href="#realisations">Réalisations</a>
+  <a href="#approche">À propos</a>
+  <a href="#contact">Contact</a>
+  <a href="tel:0665288349" class="btn btn-marine">📞 06 65 28 83 49</a>
+</div>
+
+<main>
+
+<!-- ===== 2. HERO ===== -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <p class="eyebrow reveal">Peintre décorateur · Toulon · Var (83)</p>
+    <h1 class="reveal">La couleur juste,<em>pour chaque espace.</em></h1>
+    <p class="lede reveal">Peinture intérieure et extérieure, décoration et revêtements muraux à Toulon et dans le Var. Un artisan qui écoute vos envies et les traduit en couleurs durables.</p>
+    <div class="hero-ctas reveal">
+      <a href="tel:0665288349" class="btn btn-marine btn-lg">📞 06 65 28 83 49</a>
+      <a href="#contact" class="btn btn-outline btn-lg">Demander un devis</a>
+    </div>
+    <div class="badges reveal">
+      <span class="badge">🎨 Peinture &amp; Décoration</span>
+      <span class="badge">🏠 Intérieur &amp; Extérieur</span>
+      <span class="badge">📍 Toulon (83)</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. PRESTATIONS ===== -->
+<section class="section prestations" id="prestations">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Nos prestations</p>
+      <h2 class="h-serif">Tout pour sublimer vos murs.</h2>
+    </div>
+    <div class="grid-3">
+      <article class="card reveal">
+        <span class="ic">🖌️</span>
+        <h3>Peinture intérieure</h3>
+        <p>Murs, plafonds, boiseries. Préparation soignée, application nette, couleurs au choix. Résultat durable.</p>
+      </article>
+      <article class="card reveal">
+        <span class="ic">🏠</span>
+        <h3>Ravalement de façade</h3>
+        <p>Nettoyage, réparation des fissures, peinture ou enduit. Votre façade varoise retrouve tout son éclat.</p>
+      </article>
+      <article class="card reveal">
+        <span class="ic">🎨</span>
+        <h3>Décoration &amp; couleurs</h3>
+        <p>Conseil en harmonie colorée, ambiances sur mesure. On traduit vos envies en espace vécu.</p>
+      </article>
+      <article class="card reveal">
+        <span class="ic">📐</span>
+        <h3>Papier peint</h3>
+        <p>Pose de papier peint classique, vinyle, panoramique. Raccords parfaits, finitions soignées.</p>
+      </article>
+      <article class="card reveal">
+        <span class="ic">🧱</span>
+        <h3>Enduits décoratifs</h3>
+        <p>Béton ciré, tadelakt, stuc vénitien. Des textures qui donnent du caractère à vos murs.</p>
+      </article>
+      <article class="card reveal">
+        <span class="ic">☀️</span>
+        <h3>Peinture extérieure</h3>
+        <p>Volets, portails, bardages. Produits adaptés au climat méditerranéen, résistants au soleil du Var.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. L'ŒIL DU DÉCORATEUR ===== -->
+<section class="section approche" id="approche">
+  <div class="wrap">
+    <p class="eyebrow reveal">Notre approche</p>
+    <h2 class="reveal">Peindre, c'est bien.<br>Décorer, c'est mieux.</h2>
+    <p class="body reveal">Déco Peinture 83, c'est plus qu'un artisan peintre. C'est un regard sur l'espace, une sensibilité à la lumière — celle du Var, intense et généreuse. Avant le premier coup de rouleau, on écoute ce que vous voulez ressentir dans vos pièces. Ensuite on choisit ensemble les couleurs, les matières, les finitions qui vont y répondre.</p>
+    <div class="engagements">
+      <div class="engagement reveal">
+        <span class="ic">🎨</span>
+        <strong>Conseil couleurs</strong>
+        <span>Palette sur mesure selon votre intérieur</span>
+      </div>
+      <div class="engagement reveal">
+        <span class="ic">✓</span>
+        <strong>Finitions soignées</strong>
+        <span>Aucun détail ne passe inaperçu</span>
+      </div>
+      <div class="engagement reveal">
+        <span class="ic">☀️</span>
+        <strong>Adapté au Var</strong>
+        <span>Matériaux résistants au soleil méditerranéen</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. RÉALISATIONS ===== -->
+<section class="section realisations" id="realisations">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Réalisations</p>
+      <h2 class="h-serif"><em>Quelques espaces transformés à Toulon.</em></h2>
+    </div>
+    <div class="gallery reveal">
+      <div class="gitem" tabindex="0">
+        <span class="ph" aria-hidden="true">🛋️</span>
+        <span class="cap">Salon — peinture et enduit décoratif</span>
+        <div class="overlay"><span>Salon — peinture &amp; enduit décoratif</span></div>
+      </div>
+      <div class="gitem" tabindex="0">
+        <span class="ph" aria-hidden="true">🏠</span>
+        <span class="cap">Façade — ravalement Toulon</span>
+        <div class="overlay"><span>Façade — ravalement à Toulon</span></div>
+      </div>
+      <div class="gitem" tabindex="0">
+        <span class="ph" aria-hidden="true">🛏️</span>
+        <span class="cap">Chambre — papier peint panoramique</span>
+        <div class="overlay"><span>Chambre — papier peint panoramique</span></div>
+      </div>
+      <div class="gitem" tabindex="0">
+        <span class="ph" aria-hidden="true">🍳</span>
+        <span class="cap">Cuisine — béton ciré sol et murs</span>
+        <div class="overlay"><span>Cuisine — béton ciré sol &amp; murs</span></div>
+      </div>
+      <div class="gitem" tabindex="0">
+        <span class="ph" aria-hidden="true">🪟</span>
+        <span class="cap">Volets et boiseries — peinture extérieure</span>
+        <div class="overlay"><span>Volets &amp; boiseries — peinture extérieure</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. PROCESSUS ===== -->
+<section class="section processus" id="processus">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Comment ça se passe</p>
+      <h2 class="h-serif">Du premier appel au résultat.</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="no">1</span>
+        <h3>Vous appelez</h3>
+        <p>Un appel au <a href="tel:0665288349">06 65 28 83 49</a>. On échange sur votre projet, vos envies, votre espace.</p>
+      </div>
+      <div class="step reveal">
+        <span class="no">2</span>
+        <h3>Visite et devis</h3>
+        <p>Déplacement à Toulon ou dans le Var. Conseil couleurs inclus, devis gratuit sous 48h.</p>
+      </div>
+      <div class="step reveal">
+        <span class="no">3</span>
+        <h3>La transformation</h3>
+        <p>Chantier soigné, protection du mobilier, finitions nettes. Votre intérieur comme vous l'aviez imaginé.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. TÉMOIGNAGES ===== -->
+<section class="section temoignages" id="temoignages">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Avis clients</p>
+      <h2 class="h-serif">Ce qu'ils en disent.</h2>
+    </div>
+    <div class="quotes">
+      <figure class="quote reveal">
+        <p>« Peinture complète de notre appartement à Toulon, avec conseils pour les couleurs. Résultat magnifique, on n'aurait pas trouvé ce résultat seuls. Je recommande vivement. »</p>
+        <figcaption class="who">Christine M., Toulon (83)<span class="stars" aria-label="5 sur 5 étoiles">★★★★★</span></figcaption>
+      </figure>
+      <figure class="quote reveal">
+        <p>« Ravalement de façade de notre villa varoise. Façade propre et fraîche, délais tenus. L'équipe est sérieuse et propre sur le chantier. Très satisfaits. »</p>
+        <figcaption class="who">Éric et Nathalie B., La Garde (83)<span class="stars" aria-label="5 sur 5 étoiles">★★★★★</span></figcaption>
+      </figure>
+      <figure class="quote reveal">
+        <p>« Enduit béton ciré dans notre salle de bain. Rendu impeccable, textures magnifiques. Un vrai décorateur, pas juste un peintre. On refait appel à lui pour la cuisine. »</p>
+        <figcaption class="who">Sophie L., Hyères (83)<span class="stars" aria-label="5 sur 5 étoiles">★★★★★</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. CONTACT ===== -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow reveal">Contact &amp; devis</p>
+    <h2 class="reveal">Parlons de votre projet.</h2>
+    <p class="sub reveal">Devis gratuit · Toulon &amp; Var (83)</p>
+    <div class="contact-grid">
+      <!-- Bloc gauche -->
+      <div class="contact-left reveal">
+        <a href="tel:0665288349" class="tel-cta">📞 06 65 28 83 49</a>
+        <p class="loc">📍 Toulon · Var (83)</p>
+        <p class="note">Conseil en couleurs inclus · Déplacement gratuit</p>
+      </div>
+      <!-- Bloc droit : formulaire -->
+      <form class="form-grid reveal" id="contactForm" action="#" method="post" novalidate>
+        <div class="field">
+          <label for="nom">Prénom &amp; Nom</label>
+          <input type="text" id="nom" name="nom" autocomplete="name" placeholder="Votre nom" required>
+        </div>
+        <div class="field">
+          <label for="tel">Téléphone</label>
+          <input type="tel" id="tel" name="tel" autocomplete="tel" placeholder="06 00 00 00 00" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="vous@exemple.fr">
+        </div>
+        <div class="field">
+          <label for="type">Type de travaux</label>
+          <select id="type" name="type">
+            <option value="">Sélectionnez…</option>
+            <option>Peinture intérieure</option>
+            <option>Peinture extérieure &amp; ravalement</option>
+            <option>Décoration &amp; couleurs</option>
+            <option>Papier peint</option>
+            <option>Enduit décoratif (béton ciré, tadelakt)</option>
+            <option>Peinture extérieure (volets, boiseries)</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="desc">Description</label>
+          <textarea id="desc" name="description" placeholder="Décrivez votre projet — type de pièce, surface, ambiance souhaitée…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-marine">Envoyer ma demande</button>
+        <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== 9. FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="flogo">
+      <span class="deco">Déco</span><span class="peinture">&nbsp;Peinture</span><span class="num">83</span>
+    </div>
+    <p class="meta">Peintre Décorateur · Toulon · Var (83)</p>
+    <a href="tel:0665288349" class="ftel">06 65 28 83 49</a>
+    <p class="copy">© 2026 Déco Peinture 83 — Tous droits réservés</p>
+    <p class="credit">Site réalisé par Payment Flow</p>
+  </div>
+</footer>
+
+<script>
+'use strict';
+(function(){
+
+  /* ===== HEADER SCROLL (>70px) ===== */
+  var header = document.getElementById('header');
+  function onScroll(){
+    if(window.scrollY > 70){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ===== HAMBURGER / MOBILE MENU ===== */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  function closeMenu(){
+    burger.classList.remove('open');
+    menu.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+  }
+  burger.addEventListener('click', function(){
+    var open = burger.classList.toggle('open');
+    menu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true':'false');
+    document.body.style.overflow = open ? 'hidden':'';
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeMenu();
+  });
+
+  /* ===== SCROLL REVEAL (IntersectionObserver, stagger) ===== */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reveals = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    reveals.forEach(function(el){ el.classList.add('revealed'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var el = entry.target;
+          var group = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
+          el.style.transitionDelay = Math.min(group,6) * 0.08 + 's';
+          el.classList.add('revealed');
+          io.unobserve(el);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    reveals.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ===== SCROLLSPY ===== */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  var spyMap = {};
+  navLinks.forEach(function(a){
+    var id = a.getAttribute('href').slice(1);
+    var sec = document.getElementById(id);
+    if(sec) spyMap[id] = {link:a, sec:sec};
+  });
+  // "À propos" points to #approche ; ensure section ids exist for spy targets
+  var spySections = Object.keys(spyMap).map(function(id){ return spyMap[id].sec; });
+  if('IntersectionObserver' in window && spySections.length){
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          navLinks.forEach(function(a){ a.classList.remove('active'); });
+          var id = entry.target.id;
+          if(spyMap[id]) spyMap[id].link.classList.add('active');
+        }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+    spySections.forEach(function(s){ spy.observe(s); });
+  }
+
+  /* ===== FORM (placeholder — action="#" à remplacer par Web3Forms/Formspree) ===== */
+  var form = document.getElementById('contactForm');
+  var msg = document.getElementById('formMsg');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var nom = form.nom.value.trim();
+    var tel = form.tel.value.trim();
+    if(!nom || !tel){
+      msg.textContent = 'Merci d’indiquer au moins votre nom et votre téléphone.';
+      return;
+    }
+    msg.textContent = 'Merci ' + nom.split(' ')[0] + ' ! Votre demande est prête — appelez le 06 65 28 83 49 pour un retour immédiat.';
+    form.reset();
+  });
+
+})();
+</script>
+</body>
+</html>
